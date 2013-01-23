@@ -14,6 +14,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'slim-template/vim-slim'
+Bundle 'kchmck/vim-coffee-script'
 
 filetype plugin indent on
 
@@ -57,3 +58,25 @@ filetype plugin on
 filetype indent on
 
 "let g:Powerline_symbols = 'fancy' " Powerline (makes neat status bar)
+
+" Source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
+" enabling moving line up or down
+nnoremap <C-k> mz:m-2<CR>`z==
+inoremap <C-j> <Esc>:m+<CR>==gi
+inoremap <C-k> <Esc>:m-2<CR>==gi
+vnoremap <C-j> :m'>+<CR>gv=`<my`>mzgv`yo`z
+nnoremap <C-j> mz:m+<CR>`z==
+vnoremap <C-k> :m'<-2<CR>gv=`>my`<mzgv`yo`z
+
+" tab navigation
+nnoremap <C-T> :tabe<CR>
+
+"key mapping for tab navigation
+nmap <Tab> gt
+nmap <S-Tab> gT
+
+:nmap <C-Q> :q<CR>
