@@ -7,7 +7,6 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
-
 Bundle 'tpope/vim-rails.git'
 Bundle 'molokai'
 Bundle 'kien/ctrlp.vim'
@@ -15,11 +14,15 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'slim-template/vim-slim'
 Bundle 'kchmck/vim-coffee-script'
+"Bundle '2072/PHP-Indenting-for-VIm'
+Bundle 'Nicklasos/vimphphtml'
+Bundle 'Raimondi/delimitMate'
 
 filetype plugin indent on
 
 let molokai_original = 1
 colorscheme molokai
+set guifont=Ubuntu\ Mono\ 11.5
 set t_Co=256
 set autoindent
 set smartindent
@@ -57,6 +60,8 @@ filetype on
 filetype plugin on
 filetype indent on
 
+let delimitMate_expand_cr = 1
+
 "let g:Powerline_symbols = 'fancy' " Powerline (makes neat status bar)
 
 " Source the vimrc file after saving it
@@ -80,3 +85,9 @@ nmap <Tab> gt
 nmap <S-Tab> gT
 
 :nmap <C-Q> :q<CR>
+
+let s:doing_indent_inits = 1
+
+
+
+
