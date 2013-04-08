@@ -14,9 +14,16 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'slim-template/vim-slim'
 Bundle 'kchmck/vim-coffee-script'
-"Bundle '2072/PHP-Indenting-for-VIm'
 Bundle 'Nicklasos/vimphphtml'
 Bundle 'Raimondi/delimitMate'
+Bundle 'vim-scripts/grep.vim'
+Bundle 'mattn/zencoding-vim'
+
+" SnipMate
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "Nicklasos/vim-snippets"
+Bundle "garbas/vim-snipmate"
 
 filetype plugin indent on
 
@@ -27,9 +34,9 @@ set t_Co=256
 set autoindent
 set smartindent
 set smarttab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 set autoread
 set smartcase " Override the 'ignorecase' option if the search pattern contains upper case characters
@@ -66,7 +73,7 @@ let delimitMate_expand_cr = 1
 
 " Source the vimrc file after saving it
 if has("autocmd")
-  autocmd bufwritepost .vimrc source $MYVIMRC
+  " autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
 " enabling moving line up or down
@@ -88,6 +95,10 @@ nmap <S-Tab> gT
 
 let s:doing_indent_inits = 1
 
+" deliteMate disable <,> autoclosing
+let delimitMate_matchpairs = "(:),[:],{:},':',\":\""
 
 
-
+" http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
+map <S-Enter> O<Esc>
+map <CR> o<Esc>
