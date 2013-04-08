@@ -25,7 +25,7 @@ Bundle 'matchit.zip'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "Nicklasos/vim-snippets"
-Bundle "AutoComplPop"
+Bundle "garbas/vim-snipmate"
 
 filetype plugin indent on
 
