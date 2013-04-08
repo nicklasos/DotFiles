@@ -18,12 +18,14 @@ Bundle 'Nicklasos/vimphphtml'
 Bundle 'Raimondi/delimitMate'
 Bundle 'vim-scripts/grep.vim'
 Bundle 'mattn/zencoding-vim'
+Bundle 'Shougo/neocomplcache'
+Bundle 'matchit.zip'
 
 " SnipMate
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "Nicklasos/vim-snippets"
-Bundle "garbas/vim-snipmate"
+Bundle "AutoComplPop"
 
 filetype plugin indent on
 
