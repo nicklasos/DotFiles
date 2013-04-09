@@ -18,8 +18,9 @@ Bundle 'Nicklasos/vimphphtml'
 Bundle 'Raimondi/delimitMate'
 Bundle 'vim-scripts/grep.vim'
 Bundle 'mattn/zencoding-vim'
-Bundle 'Shougo/neocomplcache'
 Bundle 'matchit.zip'
+Bundle 'AutoComplPop'
+Bundle 'tpope/vim-fugitive'
 
 " SnipMate
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -56,6 +57,7 @@ set guitablabel=%t " tab name
 set nobackup " Отключаеd создание бэкапов
 set noswapfile " Отключаем создание swap файлов
 set clipboard=unnamedplus " Работать с буфером обмена сиситемы
+set wildmode=longest:full,list:full
 
 " Убрать тулбары
 set guioptions-=m "remove menu bar
@@ -71,7 +73,7 @@ filetype indent on
 
 let delimitMate_expand_cr = 1
 
-"let g:Powerline_symbols = 'fancy' " Powerline (makes neat status bar)
+let g:Powerline_symbols = 'fancy' " Powerline (makes neat status bar)
 
 " Source the vimrc file after saving it
 if has("autocmd")
@@ -99,7 +101,6 @@ let s:doing_indent_inits = 1
 
 " deliteMate disable <,> autoclosing
 let delimitMate_matchpairs = "(:),[:],{:},':',\":\""
-
 
 " http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
 map <S-Enter> O<Esc>
