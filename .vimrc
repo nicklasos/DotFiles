@@ -21,6 +21,10 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'matchit.zip'
 Bundle 'AutoComplPop'
 Bundle 'tpope/vim-fugitive'
+Bundle 'flazz/vim-colorschemes'
+Bundle 'goatslacker/mango.vim'
+Bundle 'stephenmckinney/vim-solarized-powerline'
+Bundle 'bootleq/vim-tabline'
 
 " SnipMate
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -30,9 +34,11 @@ Bundle "garbas/vim-snipmate"
 
 filetype plugin indent on
 
-let molokai_original = 1
-colorscheme molokai
-set guifont=Ubuntu\ Mono\ 11.5
+"let molokai_original = 1
+"colorscheme molokai
+colorscheme oceandeep
+
+set guifont=Ubuntu\ Mono\ 11.3
 set t_Co=256
 set autoindent
 set smartindent
@@ -51,6 +57,7 @@ set mousehide " скрывать мышь в режиме ввода текст�
 set encoding=utf-8
 set nu " Номерация строк
 set visualbell "No sounds
+set novisualbell
 set laststatus=2
 set ignorecase " Игнорировать регистр букв при поиске
 set guitablabel=%t " tab name
@@ -59,21 +66,22 @@ set noswapfile " Отключаем создание swap файлов
 set clipboard=unnamedplus " Работать с буфером обмена сиситемы
 set wildmode=longest:full,list:full
 
-" Убрать тулбары
+" GUI options
 set guioptions-=m "remove menu bar
 set guioptions-=T "remove toolbar
-set guioptions-=L "remove right-hand scroll bar
+set guioptions-=L "remove left-hand scroll bar
+set guioptions-=r "remove right-hand scroll bar
+set guioptions-=e "remove tabs
 
-filetype on
-filetype plugin on
-filetype indent on
 filetype on
 filetype plugin on
 filetype indent on
 
 let delimitMate_expand_cr = 1
 
+let g:Powerline_colorscheme='solarized256_dark'
 let g:Powerline_symbols = 'fancy' " Powerline (makes neat status bar)
+
 
 " Source the vimrc file after saving it
 if has("autocmd")
@@ -105,3 +113,15 @@ let delimitMate_matchpairs = "(:),[:],{:},':',\":\""
 " http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
 map <S-Enter> O<Esc>
 map <CR> o<Esc>
+
+" Moving lines
+vnoremap > >gv
+vnoremap < <gv
+
+map <F2> :NERDTreeToggle<CR>
+
+" SnipMate
+let g:snipMate = {}
+let g:snipMate.scope_aliases = {} 
+let g:snipMate.scope_aliases['php'] = 'php,html'
+let g:snipMate.scope_aliases['html'] = 'html'
