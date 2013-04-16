@@ -1,11 +1,11 @@
-set nocompatible               " be iMproved
-filetype off                   " required!
+set nocompatible " be iMproved
+filetype off " required!
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-rails.git'
 Bundle 'molokai'
@@ -22,9 +22,11 @@ Bundle 'matchit.zip'
 Bundle 'AutoComplPop'
 Bundle 'tpope/vim-fugitive'
 Bundle 'flazz/vim-colorschemes'
-Bundle 'goatslacker/mango.vim'
 Bundle 'stephenmckinney/vim-solarized-powerline'
+Bundle 'briancollins/vim-jst'
+Bundle 'goatslacker/mango.vim'
 Bundle 'bootleq/vim-tabline'
+Bundle 'Lokaltog/vim-easymotion'
 
 " SnipMate
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -34,9 +36,16 @@ Bundle "garbas/vim-snipmate"
 
 filetype plugin indent on
 
-"let molokai_original = 1
-"colorscheme molokai
-colorscheme oceandeep
+let molokai_original = 1
+colorscheme molokai
+"set background=dark
+"let g:solarized_termcolors=256
+"colorscheme solarized
+
+let g:Powerline_symbols = 'fancy' " Powerline (makes neat status bar)
+"let g:Powerline_colorscheme='solarized'
+
+let g:EasyMotion_leader_key = ','
 
 set guifont=Ubuntu\ Mono\ 11.3
 set t_Co=256
@@ -79,14 +88,6 @@ filetype indent on
 
 let delimitMate_expand_cr = 1
 
-let g:Powerline_colorscheme='solarized256_dark'
-let g:Powerline_symbols = 'fancy' " Powerline (makes neat status bar)
-
-
-" Source the vimrc file after saving it
-if has("autocmd")
-  " autocmd bufwritepost .vimrc source $MYVIMRC
-endif
 
 " enabling moving line up or down
 nnoremap <C-k> mz:m-2<CR>`z==
