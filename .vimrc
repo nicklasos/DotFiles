@@ -133,3 +133,8 @@ let g:snipMate.scope_aliases['html'] = 'html'
 :nmap <silent> <M-j> :wincmd j<CR>
 :nmap <silent> <M-k> :wincmd k<CR>
 :nmap <silent> <M-l> :wincmd l<CR>
+
+" Use CTRL-S for saving, also in Insert mode
+noremap <C-S> :update<CR>
+vnoremap <C-S> <C-C>:update<CR>
+inoremap <C-S> <C-O>:update<CR>
