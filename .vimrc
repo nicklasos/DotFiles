@@ -27,6 +27,7 @@ Bundle 'briancollins/vim-jst'
 Bundle 'goatslacker/mango.vim'
 Bundle 'bootleq/vim-tabline'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'gregsexton/gitv'
 
 " SnipMate
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -126,3 +127,9 @@ let g:snipMate = {}
 let g:snipMate.scope_aliases = {} 
 let g:snipMate.scope_aliases['php'] = 'php,html'
 let g:snipMate.scope_aliases['html'] = 'html'
+
+" Navigate between splits
+:nmap <silent> <M-h> :wincmd h<CR>
+:nmap <silent> <M-j> :wincmd j<CR>
+:nmap <silent> <M-k> :wincmd k<CR>
+:nmap <silent> <M-l> :wincmd l<CR>
