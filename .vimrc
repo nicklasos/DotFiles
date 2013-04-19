@@ -28,6 +28,8 @@ Bundle 'goatslacker/mango.vim'
 Bundle 'bootleq/vim-tabline'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'gregsexton/gitv'
+Bundle 'Yggdroot/indentLine'
+Bundle 'tomtom/quickfixsigns_vim'
 
 " SnipMate
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -39,14 +41,14 @@ filetype plugin indent on
 
 let molokai_original = 1
 colorscheme molokai
-"set background=dark
-"let g:solarized_termcolors=256
-"colorscheme solarized
 
 let g:Powerline_symbols = 'fancy' " Powerline (makes neat status bar)
-"let g:Powerline_colorscheme='solarized'
 
 let g:EasyMotion_leader_key = ','
+
+if &term == "xterm"
+  colorscheme kellys    
+endif
 
 set guifont=Ubuntu\ Mono\ 11.3
 set t_Co=256
@@ -138,3 +140,5 @@ let g:snipMate.scope_aliases['html'] = 'html'
 noremap <C-S> :update<CR>
 vnoremap <C-S> <C-C>:update<CR>
 inoremap <C-S> <C-O>:update<CR>
+
+let g:quickfixsigns_classes = ['vcsdiff']
