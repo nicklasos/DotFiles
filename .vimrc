@@ -28,8 +28,10 @@ Bundle 'goatslacker/mango.vim'
 Bundle 'bootleq/vim-tabline'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'gregsexton/gitv'
-Bundle 'Yggdroot/indentLine'
-Bundle 'tomtom/quickfixsigns_vim'
+"Bundle 'Yggdroot/indentLine'
+"Bundle 'tomtom/quickfixsigns_vim'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'powerman/vim-plugin-ruscmd'
 
 " SnipMate
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -141,4 +143,5 @@ noremap <C-S> :update<CR>
 vnoremap <C-S> <C-C>:update<CR>
 inoremap <C-S> <C-O>:update<CR>
 
-let g:quickfixsigns_classes = ['vcsdiff']
+"let g:quickfixsigns_classes = ['vcsdiff']
+let g:gitgutter_eager = 0
