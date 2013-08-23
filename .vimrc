@@ -10,7 +10,7 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-rails.git'
 Bundle 'molokai'
 Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'slim-template/vim-slim'
 Bundle 'kchmck/vim-coffee-script'
@@ -32,6 +32,7 @@ Bundle 'gregsexton/gitv'
 "Bundle 'tomtom/quickfixsigns_vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'powerman/vim-plugin-ruscmd'
+Bundle 'bling/vim-airline'
 
 " SnipMate
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -145,3 +146,13 @@ inoremap <C-S> <C-O>:update<CR>
 
 "let g:quickfixsigns_classes = ['vcsdiff']
 let g:gitgutter_eager = 0
+
+" Ariline
+let g:airline_theme='powerlineish'
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline#extensions#branch#symbol = '⭠ '
+let g:airline#extensions#readonly#symbol = '⭤'
+let g:airline_linecolumn_prefix = '⭡'
