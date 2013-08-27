@@ -10,7 +10,6 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-rails.git'
 Bundle 'molokai'
 Bundle 'kien/ctrlp.vim'
-"Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'slim-template/vim-slim'
 Bundle 'kchmck/vim-coffee-script'
@@ -30,9 +29,15 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'gregsexton/gitv'
 "Bundle 'Yggdroot/indentLine'
 "Bundle 'tomtom/quickfixsigns_vim'
-Bundle 'airblade/vim-gitgutter'
+"Bundle 'airblade/vim-gitgutter'
 Bundle 'powerman/vim-plugin-ruscmd'
-Bundle 'bling/vim-airline'
+Bundle 'Pychimp/vim-luna'
+Bundle 'Shougo/neocomplcache.vim'
+
+
+"Bundle 'Lokaltog/vim-powerline'
+"Bundle 'bling/vim-airline'
+Bundle 'itchyny/lightline.vim'
 
 " SnipMate
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -148,11 +153,69 @@ inoremap <C-S> <C-O>:update<CR>
 let g:gitgutter_eager = 0
 
 " Ariline
-let g:airline_theme='powerlineish'
-let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
-let g:airline#extensions#branch#symbol = '⭠ '
-let g:airline#extensions#readonly#symbol = '⭤'
-let g:airline_linecolumn_prefix = '⭡'
+"let g:airline_theme='powerlineish'
+"let g:airline_left_sep = '⮀'
+"let g:airline_left_alt_sep = '⮁'
+"let g:airline_right_sep = '⮂'
+"let g:airline_right_alt_sep = '⮃'
+"let g:airline#extensions#branch#symbol = '⭠ '
+"let g:airline#extensions#readonly#symbol = '⭤'
+"let g:airline_linecolumn_prefix = '⭡ '
+
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'mode_map': { 'c': 'NORMAL' },
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+      \ },
+      \ 'component_function': {
+      \   'modified': 'MyModified',
+      \   'readonly': 'MyReadonly',
+      \   'fugitive': 'MyFugitive',
+      \   'filename': 'MyFilename',
+      \   'fileformat': 'MyFileformat',
+      \   'filetype': 'MyFiletype',
+      \   'fileencoding': 'MyFileencoding',
+      \   'mode': 'MyMode',
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ }
+
+function! MyModified()
+  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! MyReadonly()
+  return &ft !~? 'help\|vimfiler\|gundo' && &ro ? '⭤' : ''
+endfunction
+
+function! MyFilename()
+  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() : 
+        \  &ft == 'unite' ? unite#get_status_string() : 
+        \  &ft == 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') : 
+        \ '' != expand('%t') ? expand('%t') : '[No Name]') .
+        \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
+function! MyFugitive()
+  return &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && strlen(fugitive#head()) ? '⭠ '.fugitive#head() : ''
+endfunction
+
+function! MyFileformat()
+  return winwidth('.') > 70 ? &fileformat : ''
+endfunction
+
+function! MyFiletype()
+  return winwidth('.') > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! MyFileencoding()
+  return winwidth('.') > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! MyMode()
+  return winwidth('.') > 60 ? lightline#mode() : ''
+endfunction
