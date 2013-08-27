@@ -25,18 +25,20 @@ Bundle 'goatslacker/mango.vim'
 Bundle 'bootleq/vim-tabline'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'gregsexton/gitv'
-"Bundle 'Yggdroot/indentLine'
-"Bundle 'tomtom/quickfixsigns_vim'
-"Bundle 'airblade/vim-gitgutter'
+" Bundle 'Yggdroot/indentLine'
+" Bundle 'tomtom/quickfixsigns_vim'
+" Bundle 'airblade/vim-gitgutter'
 Bundle 'powerman/vim-plugin-ruscmd'
 Bundle 'Pychimp/vim-luna'
 Bundle 'Shougo/neocomplcache.vim'
 Bundle 'mhinz/vim-startify'
+Bundle 'skammer/vim-css-color'
 
 " Status lines
-"Bundle 'Lokaltog/vim-powerline'
-"Bundle 'bling/vim-airline'
-Bundle 'itchyny/lightline.vim'
+" Bundle 'Lokaltog/vim-powerline'
+" Bundle 'Lokaltog/powerline'
+Bundle 'bling/vim-airline'
+" Bundle 'itchyny/lightline.vim'
 
 " SnipMate
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -44,7 +46,7 @@ Bundle "tomtom/tlib_vim"
 Bundle "Nicklasos/vim-snippets"
 Bundle "garbas/vim-snipmate"
 
-"Syntaxes
+" Syntaxes
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'briancollins/vim-jst'
 
@@ -56,7 +58,7 @@ Bundle 'tpope/vim-rails.git'
 Bundle 'yearofmoo/Vim-Darkmate'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'chriskempson/base16-vim'
-
+Bundle 'zefei/simple-dark'
 
 filetype plugin indent on
 
@@ -74,7 +76,7 @@ endif
 if has("gui_running")
   " GUI is running or is about to start.
   " Maximize gvim window.
-  set lines=1000 columns=900
+  set lines=60 columns=200
 else
   " This is console Vim.
   if exists("+lines")
@@ -124,9 +126,6 @@ filetype on
 filetype plugin on
 filetype indent on
 
-let delimitMate_expand_cr = 1
-
-
 " enabling moving line up or down
 nnoremap <C-k> mz:m-2<CR>`z==
 inoremap <C-j> <Esc>:m+<CR>==gi
@@ -138,7 +137,7 @@ vnoremap <C-k> :m'<-2<CR>gv=`>my`<mzgv`yo`z
 " tab navigation
 nnoremap <C-T> :tabe<CR>
 
-"key mapping for tab navigation
+" key mapping for tab navigation
 nmap <Tab> gt
 nmap <S-Tab> gT
 
@@ -147,9 +146,7 @@ nmap <S-Tab> gT
 let s:doing_indent_inits = 1
 
 " deliteMate disable <,> autoclosing
-" let delimitMate_matchpairs = "(:),[:],{:},':',\":\""
-let delimitMate_matchpairs = "(:),{:},':',\":\""
-
+let delimitMate_matchpairs = "(:),[:],{:},':',\":\""
 
 " http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
 map <S-Enter> O<Esc>
@@ -178,76 +175,18 @@ noremap <C-S> :update<CR>
 vnoremap <C-S> <C-C>:update<CR>
 inoremap <C-S> <C-O>:update<CR>
 
-"let g:quickfixsigns_classes = ['vcsdiff']
-"let g:gitgutter_eager = 0
+" let g:quickfixsigns_classes = ['vcsdiff']
+" let g:gitgutter_eager = 0
 
 " Ariline
-"let g:airline_theme='powerlineish'
-"let g:airline_left_sep = '⮀'
-"let g:airline_left_alt_sep = '⮁'
-"let g:airline_right_sep = '⮂'
-"let g:airline_right_alt_sep = '⮃'
-"let g:airline#extensions#branch#symbol = '⭠ '
-"let g:airline#extensions#readonly#symbol = '⭤'
-"let g:airline_linecolumn_prefix = '⭡ '
-
-
-let g:lightline = {
-      \ 'colorscheme': 'powerline',
-      \ 'mode_map': { 'c': 'NORMAL' },
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-      \ },
-      \ 'component_function': {
-      \   'modified': 'MyModified',
-      \   'readonly': 'MyReadonly',
-      \   'fugitive': 'MyFugitive',
-      \   'filename': 'MyFilename',
-      \   'fileformat': 'MyFileformat',
-      \   'filetype': 'MyFiletype',
-      \   'fileencoding': 'MyFileencoding',
-      \   'mode': 'MyMode',
-      \ },
-      \ 'separator': { 'left': '⮀', 'right': '⮂' },
-      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-      \ }
-
-function! MyModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! MyReadonly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &ro ? '⭤' : ''
-endfunction
-
-function! MyFilename()
-  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() : 
-        \  &ft == 'unite' ? unite#get_status_string() : 
-        \  &ft == 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') : 
-        \ '' != expand('%t') ? expand('%t') : '[No Name]') .
-        \ ('' != MyModified() ? ' ' . MyModified() : '')
-endfunction
-
-function! MyFugitive()
-  return &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head') && strlen(fugitive#head()) ? '⭠ '.fugitive#head() : ''
-endfunction
-
-function! MyFileformat()
-  return winwidth('.') > 70 ? &fileformat : ''
-endfunction
-
-function! MyFiletype()
-  return winwidth('.') > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-endfunction
-
-function! MyFileencoding()
-  return winwidth('.') > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-function! MyMode()
-  return winwidth('.') > 60 ? lightline#mode() : ''
-endfunction
+let g:airline_theme='powerlineish'
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline#extensions#branch#symbol = '⭠ '
+let g:airline#extensions#readonly#symbol = '⭤'
+let g:airline_linecolumn_prefix = '⭡ '
 
 " Startify
 let g:startify_bookmarks = ['~/.vimrc', '/home/www-data/www/Backend', '~/Projects']
