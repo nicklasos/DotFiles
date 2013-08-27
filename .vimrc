@@ -7,7 +7,6 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required!
 Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-rails.git'
 Bundle 'molokai'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
@@ -22,7 +21,6 @@ Bundle 'AutoComplPop'
 Bundle 'tpope/vim-fugitive'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'stephenmckinney/vim-solarized-powerline'
-Bundle 'briancollins/vim-jst'
 Bundle 'goatslacker/mango.vim'
 Bundle 'bootleq/vim-tabline'
 Bundle 'Lokaltog/vim-easymotion'
@@ -33,8 +31,9 @@ Bundle 'gregsexton/gitv'
 Bundle 'powerman/vim-plugin-ruscmd'
 Bundle 'Pychimp/vim-luna'
 Bundle 'Shougo/neocomplcache.vim'
+Bundle 'mhinz/vim-startify'
 
-
+" Status lines
 "Bundle 'Lokaltog/vim-powerline'
 "Bundle 'bling/vim-airline'
 Bundle 'itchyny/lightline.vim'
@@ -44,6 +43,20 @@ Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "Nicklasos/vim-snippets"
 Bundle "garbas/vim-snipmate"
+
+"Syntaxes
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'briancollins/vim-jst'
+
+" Languages support
+Bundle 'spf13/PIV'
+Bundle 'tpope/vim-rails.git'
+
+" Colors
+Bundle 'yearofmoo/Vim-Darkmate'
+Bundle 'chriskempson/vim-tomorrow-theme'
+Bundle 'chriskempson/base16-vim'
+
 
 filetype plugin indent on
 
@@ -56,6 +69,20 @@ let g:EasyMotion_leader_key = ','
 
 if &term == "xterm"
   colorscheme kellys    
+endif
+
+if has("gui_running")
+  " GUI is running or is about to start.
+  " Maximize gvim window.
+  set lines=1000 columns=900
+else
+  " This is console Vim.
+  if exists("+lines")
+    set lines=50
+  endif
+  if exists("+columns")
+    set columns=100
+  endif
 endif
 
 set guifont=Ubuntu\ Mono\ 11.3
@@ -120,7 +147,9 @@ nmap <S-Tab> gT
 let s:doing_indent_inits = 1
 
 " deliteMate disable <,> autoclosing
-let delimitMate_matchpairs = "(:),[:],{:},':',\":\""
+" let delimitMate_matchpairs = "(:),[:],{:},':',\":\""
+let delimitMate_matchpairs = "(:),{:},':',\":\""
+
 
 " http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
 map <S-Enter> O<Esc>
@@ -150,7 +179,7 @@ vnoremap <C-S> <C-C>:update<CR>
 inoremap <C-S> <C-O>:update<CR>
 
 "let g:quickfixsigns_classes = ['vcsdiff']
-let g:gitgutter_eager = 0
+"let g:gitgutter_eager = 0
 
 " Ariline
 "let g:airline_theme='powerlineish'
@@ -164,7 +193,7 @@ let g:gitgutter_eager = 0
 
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'powerline',
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
@@ -219,3 +248,18 @@ endfunction
 function! MyMode()
   return winwidth('.') > 60 ? lightline#mode() : ''
 endfunction
+
+" Startify
+let g:startify_bookmarks = ['~/.vimrc', '/home/www-data/www/Backend', '~/Projects']
+let g:startify_list_order = ['files', 'sessions', 'bookmarks']
+let g:ctrlp_reuse_window = 'startify'
+let g:startify_custom_header = [
+            \ '   __      ___            ______ ____   ',
+            \ '   \ \    / (_)           |____  |___ \ ',
+            \ '    \ \  / / _ _ __ ___       / /  __) |',
+            \ '     \ \/ / | | ''_ ` _ \     / /  |__ <',
+            \ '      \  /  | | | | | | |   / /   ___) |',
+            \ '       \/   |_|_| |_| |_|  /_(_) |____/ ',
+            \ '',
+            \ '',
+            \ ]
