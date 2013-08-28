@@ -10,17 +10,12 @@ Bundle 'gmarik/vundle'
 Bundle 'molokai'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'slim-template/vim-slim'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'Nicklasos/vimphphtml'
-Bundle 'Raimondi/delimitMate'
 Bundle 'vim-scripts/grep.vim'
 Bundle 'mattn/zencoding-vim'
 Bundle 'matchit.zip'
 Bundle 'AutoComplPop'
 Bundle 'tpope/vim-fugitive'
-Bundle 'flazz/vim-colorschemes'
-Bundle 'stephenmckinney/vim-solarized-powerline'
 Bundle 'goatslacker/mango.vim'
 Bundle 'bootleq/vim-tabline'
 Bundle 'Lokaltog/vim-easymotion'
@@ -33,12 +28,15 @@ Bundle 'Pychimp/vim-luna'
 Bundle 'Shougo/neocomplcache.vim'
 Bundle 'mhinz/vim-startify'
 Bundle 'skammer/vim-css-color'
+Bundle 'jiangmiao/auto-pairs'
+" Bundle 'Raimondi/delimitMate'
+
 
 " Status lines
 " Bundle 'Lokaltog/vim-powerline'
 " Bundle 'Lokaltog/powerline'
-Bundle 'bling/vim-airline'
 " Bundle 'itchyny/lightline.vim'
+Bundle 'bling/vim-airline'
 
 " SnipMate
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -49,8 +47,9 @@ Bundle "garbas/vim-snipmate"
 " Syntaxes
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'briancollins/vim-jst'
-
-" Languages support
+Bundle 'slim-template/vim-slim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'StanAngeloff/php.vim'
 Bundle 'spf13/PIV'
 Bundle 'tpope/vim-rails.git'
 
@@ -59,6 +58,8 @@ Bundle 'yearofmoo/Vim-Darkmate'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'chriskempson/base16-vim'
 Bundle 'zefei/simple-dark'
+Bundle 'flazz/vim-colorschemes'
+Bundle 'stephenmckinney/vim-solarized-powerline'
 
 filetype plugin indent on
 
@@ -138,7 +139,10 @@ nnoremap <C-j> mz:m+<CR>`z==
 vnoremap <C-k> :m'<-2<CR>gv=`>my`<mzgv`yo`z
 
 " tab navigation
-nnoremap <C-T> :tabe<CR>
+
+nnoremap <C-T> :tabe\|:Startify<CR>
+
+
 
 " key mapping for tab navigation
 nmap <Tab> gt
@@ -149,7 +153,7 @@ nmap <S-Tab> gT
 let s:doing_indent_inits = 1
 
 " deliteMate disable <,> autoclosing
-let delimitMate_matchpairs = "(:),[:],{:},':',\":\""
+"let delimitMate_matchpairs = "(:),[:],{:},':',\":\""
 
 " http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
 map <S-Enter> O<Esc>
@@ -166,6 +170,9 @@ let g:snipMate = {}
 let g:snipMate.scope_aliases = {} 
 let g:snipMate.scope_aliases['php'] = 'php,html'
 let g:snipMate.scope_aliases['html'] = 'html'
+
+" PHP
+let g:DisableAutoPHPFolding = 1
 
 " Navigate between splits
 :nmap <silent> <M-h> :wincmd h<CR>
