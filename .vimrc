@@ -67,6 +67,9 @@ colorscheme molokai
 
 let g:Powerline_symbols = 'fancy' " Powerline (makes neat status bar)
 
+" Hide tildas
+highlight NonText guifg=bg
+
 let g:EasyMotion_leader_key = ','
 
 if &term == "xterm"
