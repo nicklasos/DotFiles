@@ -1,69 +1,63 @@
 set nocompatible " be iMproved
 filetype off " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
-Bundle 'molokai'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'Nicklasos/vimphphtml'
-Bundle 'vim-scripts/grep.vim'
-Bundle 'mattn/zencoding-vim'
-Bundle 'matchit.zip'
-Bundle 'AutoComplPop'
-Bundle 'tpope/vim-fugitive'
-Bundle 'goatslacker/mango.vim'
-Bundle 'bootleq/vim-tabline'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'gregsexton/gitv'
-" Bundle 'Yggdroot/indentLine'
-" Bundle 'tomtom/quickfixsigns_vim'
-" Bundle 'airblade/vim-gitgutter'
-Bundle 'powerman/vim-plugin-ruscmd'
-Bundle 'Pychimp/vim-luna'
-Bundle 'Shougo/neocomplcache.vim'
-Bundle 'mhinz/vim-startify'
-Bundle 'skammer/vim-css-color'
-Bundle 'jiangmiao/auto-pairs'
-" Bundle 'Raimondi/delimitMate'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'molokai'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Nicklasos/vimphphtml'
+Plugin 'vim-scripts/grep.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'matchit.zip'
+Plugin 'AutoComplPop'
+Plugin 'tpope/vim-fugitive'
+Plugin 'goatslacker/mango.vim'
+Plugin 'bootleq/vim-tabline'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'gregsexton/gitv'
+Plugin 'powerman/vim-plugin-ruscmd'
+Plugin 'Pychimp/vim-luna'
+Plugin 'Shougo/neocomplcache.vim'
+Plugin 'mhinz/vim-startify'
+Plugin 'skammer/vim-css-color'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'jimenezrick/vimerl'
 
 
 " Status lines
-" Bundle 'Lokaltog/vim-powerline'
-" Bundle 'Lokaltog/powerline'
-" Bundle 'itchyny/lightline.vim'
-Bundle 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 
 " SnipMate
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "Nicklasos/vim-snippets"
-Bundle "garbas/vim-snipmate"
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'Nicklasos/vim-snippets'
+Plugin 'garbas/vim-snipmate'
 
 " Syntaxes
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'briancollins/vim-jst'
-Bundle 'slim-template/vim-slim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'StanAngeloff/php.vim'
-Bundle 'spf13/PIV'
-Bundle 'tpope/vim-rails.git'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'briancollins/vim-jst'
+Plugin 'slim-template/vim-slim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'spf13/PIV'
+Plugin 'tpope/vim-rails.git'
 
 " Colors
-Bundle 'yearofmoo/Vim-Darkmate'
-Bundle 'chriskempson/vim-tomorrow-theme'
-Bundle 'chriskempson/base16-vim'
-Bundle 'zefei/simple-dark'
-Bundle 'flazz/vim-colorschemes'
-Bundle 'stephenmckinney/vim-solarized-powerline'
+Plugin 'yearofmoo/Vim-Darkmate'
+Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'chriskempson/base16-vim'
+Plugin 'zefei/simple-dark'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'stephenmckinney/vim-solarized-powerline'
+
+call vundle#end()
 
 filetype plugin indent on
 
-let molokai_original = 1
+let olokai_original = 1
 colorscheme molokai
 
 let g:Powerline_symbols = 'fancy' " Powerline (makes neat status bar)
@@ -77,21 +71,9 @@ if &term == "xterm"
   colorscheme kellys    
 endif
 
-if has("gui_running")
-  " GUI is running or is about to start.
-  " Maximize gvim window.
-  set lines=60 columns=200
-else
-  " This is console Vim.
-  if exists("+lines")
-    set lines=50
-  endif
-  if exists("+columns")
-    set columns=100
-  endif
-endif
+syntax enable
 
-set guifont=Ubuntu\ Mono\ 11.3
+"set guifont=Ubuntu\ Mono\ 11.3
 set t_Co=256
 set autoindent
 set smartindent
@@ -142,8 +124,6 @@ vnoremap <C-k> :m'<-2<CR>gv=`>my`<mzgv`yo`z
 
 nnoremap <C-T> :tabe\|:Startify<CR>
 
-
-
 " key mapping for tab navigation
 nmap <Tab> gt
 nmap <S-Tab> gT
@@ -173,6 +153,8 @@ let g:snipMate.scope_aliases['html'] = 'html'
 
 " PHP
 let g:DisableAutoPHPFolding = 1
+let php_folding = 0
+set nofoldenable
 
 " Navigate between splits
 :nmap <silent> <M-h> :wincmd h<CR>
@@ -190,13 +172,13 @@ inoremap <C-S> <C-O>:update<CR>
 
 " Ariline
 let g:airline_theme='powerlineish'
-let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
-let g:airline#extensions#branch#symbol = '⭠ '
-let g:airline#extensions#readonly#symbol = '⭤'
-let g:airline_linecolumn_prefix = '⭡ '
+"let g:airline_left_sep = '⮀'
+"let g:airline_left_alt_sep = '⮁'
+"let g:airline_right_sep = '⮂'
+"let g:airline_right_alt_sep = '⮃'
+"let g:airline#extensions#branch#symbol = '⭠ '
+"let g:airline#extensions#readonly#symbol = '⭤'
+"let g:airline_linecolumn_prefix = '⭡ '
 
 " Startify
 let g:startify_bookmarks = ['~/.vimrc', '/home/www-data/www/Backend', '~/Projects']
