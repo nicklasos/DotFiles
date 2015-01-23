@@ -8,7 +8,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'molokai'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
-" Plugin 'Nicklasos/vimphphtml'
+Plugin 'nicklasos/vimphphtml'
 Plugin 'vim-scripts/grep.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'matchit.zip'
@@ -26,7 +26,6 @@ Plugin 'skammer/vim-css-color'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'jimenezrick/vimerl'
 
-
 " Status lines
 Plugin 'bling/vim-airline'
 
@@ -37,7 +36,6 @@ Plugin 'Nicklasos/vim-snippets'
 Plugin 'garbas/vim-snipmate'
 
 " Syntaxes
-"Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'briancollins/vim-jst'
 Plugin 'slim-template/vim-slim'
@@ -45,12 +43,10 @@ Plugin 'kchmck/vim-coffee-script'
 " Plugin 'StanAngeloff/php.vim'
 Plugin 'spf13/PIV'
 Plugin 'tpope/vim-rails.git'
-" Plugin 'hhvm/vim-hack'
+Plugin 'hhvm/vim-hack'
 Plugin 'fatih/vim-go'
 
 " React JSX or Riot.js
-" Plugin 'mxw/vim-jsx'
-" Plugin 'jsx/jsx.vim'
 Plugin 'nicklasos/vim-jsx-riot'
 
 " Colors
@@ -141,9 +137,6 @@ nmap <S-Tab> gT
 
 let s:doing_indent_inits = 1
 
-" deliteMate disable <,> autoclosing
-"let delimitMate_matchpairs = "(:),[:],{:},':',\":\""
-
 " http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
 map <S-Enter> O<Esc>
 map <CR> o<Esc>
@@ -176,19 +169,9 @@ noremap <C-S> :update<CR>
 vnoremap <C-S> <C-C>:update<CR>
 inoremap <C-S> <C-O>:update<CR>
 
-" let g:quickfixsigns_classes = ['vcsdiff']
-" let g:gitgutter_eager = 0
-
 " Ariline
 let g:airline_theme='powerlineish'
-"let g:airline_left_sep = '⮀'
-"let g:airline_left_alt_sep = '⮁'
-"let g:airline_right_sep = '⮂'
-"let g:airline_right_alt_sep = '⮃'
-"let g:airline#extensions#branch#symbol = '⭠ '
-"let g:airline#extensions#readonly#symbol = '⭤'
-"let g:airline_linecolumn_prefix = '⭡ '
-
+"
 " Startify
 let g:startify_bookmarks = ['~/.vimrc', '/home/www-data/www/Backend', '~/Projects']
 let g:startify_list_order = ['files', 'sessions', 'bookmarks']
@@ -196,4 +179,3 @@ let g:ctrlp_reuse_window = 'startify'
 
 " JSX React and Riot.js
 au BufNewFile,BufRead *.tag setlocal ft=javascript
-
