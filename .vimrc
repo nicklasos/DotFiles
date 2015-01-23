@@ -196,3 +196,4 @@ let g:ctrlp_reuse_window = 'startify'
 
 " JSX React and Riot.js
 au BufNewFile,BufRead *.tag setlocal ft=javascript
+
