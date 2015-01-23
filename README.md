@@ -1,0 +1,2 @@
+# dotvim
+Magical file!
