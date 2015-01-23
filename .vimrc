@@ -8,7 +8,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'molokai'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Nicklasos/vimphphtml'
+" Plugin 'Nicklasos/vimphphtml'
 Plugin 'vim-scripts/grep.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'matchit.zip'
@@ -37,13 +37,21 @@ Plugin 'Nicklasos/vim-snippets'
 Plugin 'garbas/vim-snipmate'
 
 " Syntaxes
-Plugin 'jelera/vim-javascript-syntax'
+"Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
 Plugin 'briancollins/vim-jst'
 Plugin 'slim-template/vim-slim'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'StanAngeloff/php.vim'
+" Plugin 'StanAngeloff/php.vim'
 Plugin 'spf13/PIV'
 Plugin 'tpope/vim-rails.git'
+" Plugin 'hhvm/vim-hack'
+Plugin 'fatih/vim-go'
+
+" React JSX or Riot.js
+" Plugin 'mxw/vim-jsx'
+" Plugin 'jsx/jsx.vim'
+Plugin 'nicklasos/vim-jsx-riot'
 
 " Colors
 Plugin 'yearofmoo/Vim-Darkmate'
@@ -74,6 +82,7 @@ endif
 syntax enable
 
 "set guifont=Ubuntu\ Mono\ 11.3
+set gfn=Monaco:h12
 set t_Co=256
 set autoindent
 set smartindent
@@ -184,13 +193,6 @@ let g:airline_theme='powerlineish'
 let g:startify_bookmarks = ['~/.vimrc', '/home/www-data/www/Backend', '~/Projects']
 let g:startify_list_order = ['files', 'sessions', 'bookmarks']
 let g:ctrlp_reuse_window = 'startify'
-let g:startify_custom_header = [
-            \ '   __      ___            ______ ____   ',
-            \ '   \ \    / (_)           |____  |___ \ ',
-            \ '    \ \  / / _ _ __ ___       / /  __) |',
-            \ '     \ \/ / | | ''_ ` _ \     / /  |__ <',
-            \ '      \  /  | | | | | | |   / /   ___) |',
-            \ '       \/   |_|_| |_| |_|  /_(_) |____/ ',
-            \ '',
-            \ '',
-            \ ]
+
+" JSX React and Riot.js
+au BufNewFile,BufRead *.tag setlocal ft=javascript
