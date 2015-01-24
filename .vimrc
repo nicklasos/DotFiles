@@ -93,7 +93,7 @@ set incsearch
 set shiftround " drop unused spaces
 set wrap " перенос длинных строк
 set lbr " переносить целые слова
-set mousehide " скрывать мышь в режиме ввода текста"
+set mousehide " скрывать мышь в режиме ввода текста
 set encoding=utf-8
 set nu " Номерация строк
 set visualbell "No sounds
@@ -173,7 +173,7 @@ inoremap <C-S> <C-O>:update<CR>
 let g:airline_theme='powerlineish'
 "
 " Startify
-let g:startify_bookmarks = ['~/.vimrc', '/home/www-data/www/Backend', '~/Projects']
+let g:startify_bookmarks = ['~/.vimrc', '~/Projects']
 let g:startify_list_order = ['files', 'sessions', 'bookmarks']
 let g:ctrlp_reuse_window = 'startify'
 
