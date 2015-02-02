@@ -47,7 +47,7 @@ Plugin 'hhvm/vim-hack'
 Plugin 'fatih/vim-go'
 
 " React JSX or Riot.js
-Plugin 'nicklasos/vim-jsx-riot'
+" Plugin 'nicklasos/vim-jsx-riot'
 
 " Colors
 Plugin 'yearofmoo/Vim-Darkmate'
@@ -63,8 +63,6 @@ filetype plugin indent on
 
 let olokai_original = 1
 colorscheme molokai
-
-let g:Powerline_symbols = 'fancy' " Powerline (makes neat status bar)
 
 " Hide tildas
 highlight NonText guifg=bg
@@ -93,7 +91,7 @@ set incsearch
 set shiftround " drop unused spaces
 set wrap " перенос длинных строк
 set lbr " переносить целые слова
-set mousehide " скрывать мышь в режиме ввода текста
+set mousehide " скрывать мышь в режиме ввода текста"
 set encoding=utf-8
 set nu " Номерация строк
 set visualbell "No sounds
@@ -171,11 +169,13 @@ inoremap <C-S> <C-O>:update<CR>
 
 " Ariline
 let g:airline_theme='powerlineish'
-"
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+
 " Startify
-let g:startify_bookmarks = ['~/.vimrc', '~/Projects']
+let g:startify_bookmarks = ['~/.vimrc', '/home/www-data/www/Backend', '~/Projects']
 let g:startify_list_order = ['files', 'sessions', 'bookmarks']
 let g:ctrlp_reuse_window = 'startify'
 
 " JSX React and Riot.js
-au BufNewFile,BufRead *.tag setlocal ft=javascript
+" au BufNewFile,BufRead *.tag setlocal ft=javascript
