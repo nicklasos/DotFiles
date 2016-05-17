@@ -1,2 +1,1 @@
-# dotvim
-Magical file!
+#Magical files!
